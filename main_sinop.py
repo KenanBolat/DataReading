@@ -22,7 +22,7 @@ cnx = mysql.connector.connect(
 )
 cursor = cnx.cursor()
 
-add_data = "INSERT INTO aws_observation (StationID, Latitude, Longitude, Altitude, Year, Month, Day, Hour, Minute, SnowDepth) " \
+add_data = "INSERT INTO sinop_observation (StationID, Latitude, Longitude, Altitude, Year, Month, Day, Hour, Minute, SnowDepth) " \
            "VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
 
 
@@ -35,7 +35,7 @@ LOG = []
 c = np.array([])
 
 # Define Path
-data_path = r"I:\temp\DailyGroundObservations\DailyGroundObservations\aws"
+data_path = r"I:\temp\DailyGroundObservations\DailyGroundObservations\sinoptik"
 merged_file = []
 b = []
 # Trace each file and replace "|"  with tab and "NULL" with 9999
@@ -58,7 +58,7 @@ for r, d, f in os.walk(data_path):
                         LOG.append(filename)
                     a = row[0].replace("NULL", "9999")
                     a = a.replace("CAA", "")
-                    a = a.replace("CAA", "")
+                    a = a.replace("CCA", "")
                     a = a.replace("CAB", "")
                     a = a.replace("CCB", "")
                     a = a.replace("CCC", "")
